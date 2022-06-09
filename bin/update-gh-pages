@@ -18,6 +18,7 @@ echo "GITHUB_ACTOR is $GITHUB_ACTOR"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
+git fetch
 echo "before checkout"
 git checkout "$target_branch"
 echo "after checkout"

@@ -39,12 +39,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         # Substrate uses this GitHub Action to Download the Rustup Toolchain: https://github.com/paritytech/substrate/actions/runs/66144122/workflow#L16
-      - uses: actions-rs/toolchain@v1
-        with: 
-          toolchain: stable
-          override: true
+#       - uses: actions-rs/toolchain@v1
+#         with: 
+#           toolchain: stable
+#           override: true
           
-      - run: cargo doc --no-deps
+#       - run: cargo doc --no-deps
         
       - run: sh ./bin/update-gh-pages
         env:

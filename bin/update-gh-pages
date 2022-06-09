@@ -9,14 +9,18 @@ target_branch="gh-pages"
 build_dir="target/doc"
 
 
-echo "workspace is: $GITHUB_WORKSPACE"
-
 cd "$GITHUB_WORKSPACE"
+
+echo "branches are:"
+git branch
 
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
+echo "before checkout"
 git checkout "$target_branch"
+echo "after checkout"
+
 git rebase "${remote_name}/${main_branch}"
 
 cargo doc --no-dep # ./bin/build "$build_dir"

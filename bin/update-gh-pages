@@ -14,6 +14,7 @@ cd "$GITHUB_WORKSPACE"
 echo "branches are:"
 git branch
 
+echo "GITHUB_ACTOR is $GITHUB_ACTOR"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 

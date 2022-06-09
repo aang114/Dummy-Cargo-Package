@@ -1,9 +1,4 @@
-
-
-
 #!/usr/bin/env bash
-
-echo "hello"
 
 set -eu
 
@@ -12,7 +7,6 @@ remote_name="origin"
 main_branch="master"
 target_branch="gh-pages"
 build_dir="target/doc"
-# doc_index_pages = "clamor/index.html"   
 
 cd "$GITHUB_WORKSPACE"
 

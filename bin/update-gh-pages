@@ -23,10 +23,12 @@ echo "before checkout"
 git checkout "$target_branch"
 echo "after checkout"
 
-git rebase "${remote_name}/${main_branch}"
+# git rebase "${remote_name}/${main_branch}"
+# cargo doc --no-dep # ./bin/build "$build_dir"
+# git add "$build_dir"
 
-cargo doc --no-dep # ./bin/build "$build_dir"
-git add "$build_dir"
+echo "Lorem ipsum" > dummy.txt
+git add "dummy.txt"
 
 git commit -m "updated GitHub Pages"
 if [ $? -ne 0 ]; then

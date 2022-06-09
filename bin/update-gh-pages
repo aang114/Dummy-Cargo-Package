@@ -8,6 +8,9 @@ main_branch="master"
 target_branch="gh-pages"
 build_dir="target/doc"
 
+
+echo "workspace is: $GITHUB_WORKSPACE"
+
 cd "$GITHUB_WORKSPACE"
 
 git config user.name "$GITHUB_ACTOR"

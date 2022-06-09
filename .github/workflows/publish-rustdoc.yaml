@@ -46,7 +46,7 @@ jobs:
           
       - run: cargo doc --no-deps
         
-      - run: ./bin/update-gh-pages
+      - run: sh ./bin/update-gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
       

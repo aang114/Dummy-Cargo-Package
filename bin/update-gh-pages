@@ -27,8 +27,12 @@ echo "after checkout"
 # cargo doc --no-dep # ./bin/build "$build_dir"
 # git add "$build_dir"
 
-echo "Lorem ipsum" > dummy.txt
-git add "dummy.txt"
+# echo "Lorem ipsum" > dummy.txt
+# git add "dummy.txt"
+
+echo "Lorem ipsum (from README.md)" > README.md
+git add "README.md"
+
 
 git commit -m "updated GitHub Pages"
 if [ $? -ne 0 ]; then

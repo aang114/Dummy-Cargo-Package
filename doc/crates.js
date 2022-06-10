@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["Dummy_Cargo_Package"];

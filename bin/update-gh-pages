@@ -2,43 +2,38 @@
 
 set -eu
 
-repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-remote_name="origin"
-main_branch="main"
-target_branch="gh-pages"
-build_dir="target/doc"
+REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_NAME="origin"
+MAIN_BRANCH="main"
+TARGET_BRANCH="gh-pages"
 
+DOC_FOLDER_MAIN_BRANCH = "target/doc"
+DOC_FOLDER_TARGET_BRANCH = "doc"
+DOC_INDEX_PAGE_TARGET_BRANCH = "Dummy_Cargo_Package/index.html"
 
 cd "$GITHUB_WORKSPACE"
 
-echo "branches are:"
-git branch
-
-echo "GITHUB_ACTOR is $GITHUB_ACTOR"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
+cargo doc -no-dep # saves doc in $DOC_FOLDER_MAIN_BRANCH
+
 git fetch
-echo "before checkout"
-git checkout "$target_branch"
-echo "after checkout"
+git checkout "$TARGET_BRANCH"
 
-# git rebase "${remote_name}/${main_branch}"
-# cargo doc --no-dep # ./bin/build "$build_dir"
-# git add "$build_dir"
+rm -rf DOC_FOLDER_TARGET_BRANCH
 
-# echo "Lorem ipsum" > dummy.txt
-# git add "dummy.txt"
+mv -f "${DOC_FOLDER_MAIN_BRANCH}" "${DOC_FOLDER_TARGET_BRANCH}" 
+echo "<meta http-equiv=refresh content=0;url=${DOC_INDEX_PAGE}>" > "index.html"
 
-echo "Lorem ipsum (from README.md)" > README.md
-git add "README.md"
+git add "$DOC_FOLDER_TARGET_BRANCH"
+git add "index.html"
 
-
-git commit -m "updated GitHub Pages"
+git commit -m "Updated GitHub Pages"
 if [ $? -ne 0 ]; then
     echo "nothing to commit"
     exit 0
 fi
 
-git remote set-url "$remote_name" "$repo_uri" # includes access token
-git push --force-with-lease "$remote_name" "$target_branch"
+git remote set-url "$REMOTE_NAME" "$REPO_URL" 
+git push --force-with-lease "$REMOTE_NAME" "$TARGET_BRANCH"

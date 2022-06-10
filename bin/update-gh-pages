@@ -16,7 +16,7 @@ cd "$GITHUB_WORKSPACE"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
-cargo doc -no-dep # saves doc in $DOC_FOLDER_MAIN_BRANCH
+cargo doc --no-deps # saves doc in $DOC_FOLDER_MAIN_BRANCH
 
 git fetch
 git checkout "$TARGET_BRANCH"

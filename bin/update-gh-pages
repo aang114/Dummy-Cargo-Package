@@ -7,9 +7,9 @@ REMOTE_NAME="origin"
 MAIN_BRANCH="main"
 TARGET_BRANCH="gh-pages"
 
-DOC_FOLDER_MAIN_BRANCH = "target/doc"
-DOC_FOLDER_TARGET_BRANCH = "doc"
-DOC_INDEX_PAGE_TARGET_BRANCH = "Dummy_Cargo_Package/index.html"
+DOC_FOLDER_MAIN_BRANCH="target/doc"
+DOC_FOLDER_TARGET_BRANCH="doc"
+DOC_INDEX_PAGE_TARGET_BRANCH="Dummy_Cargo_Package/index.html"
 
 cd "$GITHUB_WORKSPACE"
 

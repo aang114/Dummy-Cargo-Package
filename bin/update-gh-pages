@@ -24,7 +24,7 @@ git checkout "$TARGET_BRANCH"
 rm -rf DOC_FOLDER_TARGET_BRANCH
 
 mv -f "${DOC_FOLDER_MAIN_BRANCH}" "${DOC_FOLDER_TARGET_BRANCH}" 
-echo "<meta http-equiv=refresh content=0;url=${DOC_INDEX_PAGE}>" > "index.html"
+echo "<meta http-equiv=refresh content=0;url=${DOC_FOLDER_TARGET_BRANCH}/${DOC_INDEX_PAGE}>" > "index.html"
 
 git add "$DOC_FOLDER_TARGET_BRANCH"
 git add "index.html"

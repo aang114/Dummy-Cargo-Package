@@ -33,6 +33,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
+      - name: What is the current working directory?
+        run: |
+          pwd
+          
   publish-rustdoc-to-gh-pages:
     runs-on: ubuntu-latest
     
